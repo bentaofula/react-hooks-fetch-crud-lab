@@ -6,13 +6,13 @@ function QuestionList() {
   const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/questions")
+    fetch("http://localhost:3000/questions")
     .then((response) => response.json())
     .then((questions) => setQuestions(questions));
   }, []);
 
   function handleDelete (id) {
-    fetch(`http://localhost:4000/questions/${id}`, {
+    fetch(`http://localhost:3000/questions/${id}`, {
       method: "DELETE",
     })
     .then((response) => response.json())
@@ -23,7 +23,7 @@ function QuestionList() {
   }
 
   function handleAnswerChange (id, correctIndex) {
-    fetch(`http://localhost:4000/questions/${id}`, {
+    fetch(`http://localhost:3000/questions/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type" : "application/json",
